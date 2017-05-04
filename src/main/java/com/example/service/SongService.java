@@ -21,6 +21,6 @@ public class SongService {
     }
 
     public Mono<Song> findById(String songId) {
-        return songRepository.findOne(songId);
+        return songRepository.findById(songId);
     }
 }

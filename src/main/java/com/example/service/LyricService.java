@@ -21,6 +21,6 @@ public class LyricService {
     }
 
     public Mono<Lyric> findById(String lyricId) {
-        return lyricRepository.findOne(lyricId);
+        return lyricRepository.findById(lyricId);
     }
 }
