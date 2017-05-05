@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -17,9 +17,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class Lyric {
 
-    private ObjectId id;
+    @Id
+    private String id;
 
     private String content;
 
     private int likes;
+
+    private String songId;
+
+    public Lyric(String songId, String content){
+        this.content = content;
+        this.songId = songId;
+    }
+
+    public void like(){
+        ++this.likes;
+    }
 }

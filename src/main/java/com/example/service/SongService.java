@@ -23,4 +23,12 @@ public class SongService {
     public Mono<Song> findById(String songId) {
         return songRepository.findById(songId);
     }
+
+    public Mono<Song> addSong(String title){
+        return Mono.just(title).map(Song::new).flatMap(songRepository::insert);
+    }
+
+    public Mono<Void> deleteSong(String objectId){
+        return songRepository.deleteById(objectId);
+    }
 }
