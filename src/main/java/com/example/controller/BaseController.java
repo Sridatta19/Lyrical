@@ -41,6 +41,7 @@ public class BaseController {
                 .andRoute(GET("/songs"), getAllSongs)
                 .andRoute(GET("/songs/{id}"), getSongById)
                 .andRoute(POST("/songs/addSong"), addSong)
+                .andRoute(POST("/songs/deleteSong/{id}"), deleteSong)
                 .andRoute(GET("/songs/lyrics/{id}"), getLyricsBySong)
                 .andRoute(GET("/lyrics"), getAllLyrics)
                 .andRoute(GET("/lyrics/{id}"), getLyricById)
@@ -62,6 +63,8 @@ public class BaseController {
     private HandlerFunction<ServerResponse> getLyricsBySong = request -> ok().body(lyricService.findBySongId(request.pathVariable("id")), Lyric.class);
 
     private HandlerFunction<ServerResponse> getSongById = request -> ok().body(songService.findById(request.pathVariable("id")), Song.class);
+
+    private HandlerFunction<ServerResponse> deleteSong = request -> ok().body(songService.deleteSong(request.pathVariable("id")), String.class);
 
     private HandlerFunction<ServerResponse> addSong = request -> ok().body(songService.addSong(request.queryParams("title").get(0)), Song.class);
 

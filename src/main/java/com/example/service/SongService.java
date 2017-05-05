@@ -28,7 +28,7 @@ public class SongService {
         return Mono.just(title).map(Song::new).flatMap(songRepository::insert);
     }
 
-    public Mono<Void> deleteSong(String objectId){
-        return songRepository.deleteById(objectId);
+    public Mono<String> deleteSong(String songId){
+        return songRepository.deleteById(songId).map(m -> "Successfully Deleted");
     }
 }
