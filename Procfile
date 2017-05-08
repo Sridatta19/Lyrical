@@ -1,1 +1,1 @@
-web: java -jar target/Lyrical-0.0.1-SNAPSHOT.jar
+web: java -jar -Dspring.data.mongodb.uri=$JDBC_DATABASE_URL target/Lyrical-0.0.1-SNAPSHOT.jar
