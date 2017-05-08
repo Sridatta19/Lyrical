@@ -1,1 +1,1 @@
-web: java -jar -Dspring.data.mongodb.uri=$JDBC_DATABASE_URL target/Lyrical-0.0.1-SNAPSHOT.jar
+web: java -Xmx384m -Xss512k -XX:+UseCompressedOops -jar target/Lyrical-0.0.1-SNAPSHOT.jar.jar --server.port=$PORT
